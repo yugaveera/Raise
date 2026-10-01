@@ -1014,7 +1014,7 @@ function ReelReal(){
   const [i,setI]=useState(0);const [auto,setAuto]=useState(true);
   useEffect(()=>{if(RM||!auto)return;const t=setInterval(()=>setI(x=>1-x),4500);return()=>clearInterval(t)},[auto]);
   const S=[
-    {img:'kandhanCard',k:'May 2025 · the reel',t:'What they saw',d:'An AI reel on PortraitXAI, a page that had always been openly AI-made. Six thousand people asked what it cost. Nothing physical existed yet.'},
+    {img:'kandhanCard',k:'May 2025 · the reel',t:'What they saw',d:'A concept reel on PortraitXAI, our creative page. Six thousand people asked what it cost. Nothing physical existed yet.'},
     {img:'kandhan',k:'November 2025 · the figure',t:'What we made',d:'Kandhan: modelled and printed in full colour in our own studio, to the standard the reel had promised. Over a thousand sold since.'},
   ];
   return html`<div className="rr">
@@ -1040,8 +1040,8 @@ function Calling(){
       <h2>It began with a reel.<em>It became a calling.</em></h2>
       <div className="ointro">
         <div>
-          <p className="lede">In May 2025 we shared an AI-created vision of Kandhan on PortraitXAI, our creative page. More than 6,000 people asked what he cost. There was nothing to sell them, only a response we knew we could answer.</p>
-          <p className="lede">As an architect, I had spent years turning ideas into form. This one was personal. I set out to turn that vision into something people could hold.</p>
+          <p className="lede">In May 2025 we shared a concept vision of Kandhan on PortraitXAI, our creative page. More than 6,000 people asked what he cost. There was nothing to sell them, only a response we knew we could answer.</p>
+          <p className="lede">An architect by profession, our co-founder Prabhakaran had spent years turning ideas into form. This one was personal: the vision had to become something people could hold.</p>
         </div>
         <div className="opull">
           <b>That was the beginning of YugaVeera.</b>
@@ -1064,7 +1064,7 @@ function Calling(){
       <div className="three" style=${{marginTop:60}}>
         <div className="oc"><span className="n">200K+</span><h3>Comments and enquiries</h3><p>Across every page and platform we run, almost all of them asking where to buy.</p></div>
         <div className="oc"><span className="n">100M+</span><h3>Organic views</h3><p>84M lifetime on YouTube plus 17M on Instagram in September alone; paid ads run only against sales.</p></div>
-        <div className="oc"><span className="n">10,000+</span><h3>Units sold across brands</h3><p>4,435 at YugaVeera since October 2025 and 4,175 at Divine Car Hangs in just eight months, plus Car Stands, bulk, Naar and exports. Kandhan and the gopuram opened the category; the catalogue keeps it growing.</p></div>
+        <div className="oc"><span className="n">10,000+</span><h3>Units sold across brands</h3><p>4,435 at YugaVeera since October 2025 and 4,175 at Divine Car Hangs in just eight months, plus Car Stands, bulk, other platforms and exports. Kandhan and the gopuram opened the category; the catalogue keeps it growing.</p></div>
       </div>
       <p className="quote">We didn't invent a demand and chase it. The demand arrived first, and we built a studio to answer it. <span>Then the studio proved it could do it again.</span></p>
     </div>
@@ -1081,7 +1081,7 @@ function UnitsSold(){
     ${rows.map(([n,u,c])=>html`<div className="urow" key=${n}><div className="l"><span>${n}</span><b>${u.toLocaleString('en-IN')}</b></div><div className="t"><i style=${{background:c,width:(u/max*100)+'%',transform:`scaleX(${v?1:0})`}}></i></div></div>`)}</div>`;
   return html`<div ref=${ref} style=${{marginTop:80}}>
     <h3 style=${{fontSize:'clamp(28px,3.2vw,44px)'}}>Units sold: 10,000+, and spread wide.</h3>
-    <p className="lede" style=${{marginTop:14}}>From Shopify's own units report. Two stores alone account for 8,610 net items since they opened, the second only eight months ago; Divine Car Stands, direct bulk orders, the Naar platform and exports take the group past 10,000. No single product carries the business.</p>
+    <p className="lede" style=${{marginTop:14}}>From Shopify's own units report. Two stores alone account for 8,610 net items since they opened, the second only eight months ago; Divine Car Stands, direct bulk orders, other platforms and exports take the group past 10,000. No single product carries the business.</p>
     <div className="ugrid">
       <${Panel} name="YugaVeera store" total="4,435" since="since the store opened, Oct 2025" rows=${UNITS_YV} max=${951}/>
       <${Panel} name="Divine Car Hangs store" total="4,175" since="in 8 months, since Feb 2026" rows=${UNITS_DCH} max=${951}/>
@@ -1089,7 +1089,7 @@ function UnitsSold(){
     <div className="unote">
       <div><b>5</b>different YugaVeera concepts, each above 250 units: dashboard guardians, the gopuram, flying Murugan, Tirupati, Mayil Vel.</div>
       <div><b>5%</b>is the largest single product's share of Divine Car Hangs units. Demand is a catalogue, not a hit.</div>
-      <div><b>8,610</b>net items from two stores alone; Car Stands, bulk, Naar and exports sit on top.</div>
+      <div><b>8,610</b>net items from two stores alone; Car Stands, bulk, other platforms and exports sit on top.</div>
     </div>
     <p className="src">Shopify Reports, top product variants by units sold, from each store’s opening to 1 October 2026: YugaVeera from October 2025, Divine Car Hangs from February 2026. Top five shown per store.</p>
   </div>`;
@@ -1208,9 +1208,9 @@ function BrandSystem(){
       </div>
       <p className="src">Instagram and YouTube Studio, 30 Sep 2026; followers are Instagram plus YouTube subscribers. Per-month figures divide today's totals by months since each store launched.</p>
 
-      <h3 style=${{marginTop:80,fontSize:'clamp(28px,3.2vw,44px)'}}>Idea to shelf, without a supplier in the loop.</h3>
+      <h3 style=${{marginTop:80,fontSize:'clamp(28px,3.2vw,44px)'}}>Design to the customer\u2019s hands, without a supplier in the loop.</h3>
       <div className="pipe">
-        ${[["Design","In-house modellers turn a deity, a temple or a festival into an original form."],["Prototype","Printed on our own machines. No tooling, no vendor, no wait."],["Test demand","A reel goes out before stock is made. Comments and DMs tell us what to build."],["Launch","Straight onto our own storefront, made to order from day one."],["Scale","Winners get stocked and rolled across formats and brands."]].map(([t,d],i)=>html`<div key=${t} style=${{transitionDelay:i*.1+'s',opacity:v?1:0,transform:v?'none':'translateY(14px)'}}><em>${String(i+1).padStart(2,'0')}</em><b>${t}</b><span>${d}</span></div>`)}
+        ${[["Design","In-house modellers turn a deity, a temple or a festival into an original form."],["Prototype","Printed on our own machines. No tooling, no vendor, no wait."],["Test demand","A reel goes out before stock is made. Comments and DMs tell us what to build."],["Launch","Straight onto our own storefront, made to order from day one."],["Scale up & repeat","Winners scale across formats and brands, and the workflow repeats for the next design."]].map(([t,d],i)=>html`<div key=${t} style=${{transitionDelay:i*.1+'s',opacity:v?1:0,transform:v?'none':'translateY(14px)'}}><em>${String(i+1).padStart(2,'0')}</em><b>${t}</b><span>${d}</span></div>`)}
       </div>
 
       <h3 style=${{marginTop:80,fontSize:'clamp(28px,3.2vw,44px)'}}>Devotion brings people back.</h3>
@@ -1248,8 +1248,8 @@ function Valuation(){
   ];
   const L=[
     {t:"The plan",big:"₹17–32 Cr",cap:"month-18 revenue of ₹8.4–10.8 Cr at 2–3× revenue",d:"Price the business on the plan this round funds and ₹18 Cr sits at the bottom of the range. You are buying at today\u2019s price into that curve."},
-    {t:"Rebuild cost",big:"11 months",cap:"the one input money cannot buy",d:"To rebuild this a funded entrant would need 100M+ views (₹1 Cr+ of media even at ₹100 per thousand), 160K followers, a library of tested original designs, a 25-machine farm with a trained team and process, three live brands with 10,000+ units of proof, and a head start it can never close."},
-    {t:"Optionality",big:"Unpriced",cap:"what ₹18 Cr gives you for free",d:"Mayon at ₹10,000+ per piece; diaspora micro-factories; the Deity Media Network turning each deity audience into a storefront; other-faith lines on the same formats; licensing the character IP. None of it is in the number."},
+    {t:"Rebuild cost",big:"11 months",cap:"the one input money cannot buy",d:"To rebuild this a funded entrant would need 100M+ views (₹1 Cr+ of media even at ₹100 per thousand), 160K followers, a library of tested original designs, a 25-machine production infrastructure run by a trained team on documented SOPs, three live brands with 10,000+ units of proof, and a head start it can never close."},
+    {t:"Optionality",big:"Unpriced",cap:"what ₹18 Cr gives you for free",d:"Mayon limited editions at ₹10,000–20,000+ per piece; diaspora micro-factories; the Deity Media Network turning each deity audience into a storefront; other-faith lines on the same formats; licensing the character IP. None of it is in the number."},
     {t:"Today\u2019s revenue: the wrong lens",big:"13×",cap:"₹18 Cr on ₹1.38 Cr annualised revenue",d:"The lens a generic D2C brand is priced on, and the wrong one for a company whose flagship grew 234% in a quarter without outside capital. We state it so you never have to calculate it."}
   ];
   return html`<section id="valuation" className="sec ivoryBg">
@@ -1296,7 +1296,7 @@ function TractionDash(){
   const max=Math.max(...STORES.map(r=>r[1]));
   return html`<div ref=${ref}>
     <div className="tgrid">
-      <div className="tt"><b>₹11.5L+</b><span>September revenue: ${fmtL(sales)} Shopify plus ₹2L+ exports, Naar and bulk</span></div>
+      <div className="tt"><b>₹11.5L+</b><span>September revenue: ${fmtL(sales)} Shopify plus ₹2L+ exports, other platforms and bulk</span></div>
       <div className="tt"><b>${orders.toLocaleString('en-IN')}</b><span>orders in September across those stores</span></div>
       <div className="tt"><b>₹16L<em>+234%</em></b><span>YugaVeera store, 90 days to 30 Sep, vs the prior 90</span></div>
       <div className="tt"><b>1,873<em>+267%</em></b><span>YugaVeera orders in the same 90 days</span></div>
@@ -1308,7 +1308,7 @@ function TractionDash(){
       <thead><tr><th>Store, last 30 days</th><th className="r">Sales</th><th className="r">Orders</th><th className="r">AOV</th><th className="r">Conversion</th><th className="r">Sessions</th><th className="r">Since launch</th></tr></thead>
       <tbody>
         ${STORES.map(r=>html`<tr key=${r[0]}><td>${r[0]}</td><td className="n">${fmtL(r[1])}</td><td className="n">${r[2].toLocaleString('en-IN')}</td><td className="n">₹${Math.round(r[1]/r[2])}</td><td className="n">${r[3]}%</td><td className="n">${r[4].toLocaleString('en-IN')}</td><td className=${'n '+(r[5].startsWith('+')?'up':r[5].startsWith('−')?'dn':'')} style=${{fontSize:r[5].length>6?14:undefined}}>${r[5]}</td></tr>`)}
-        <tr><td>Exports, Naar platform, direct bulk</td><td className="n">₹2L+</td><td className="n">—</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Exports, other platforms, direct bulk</td><td className="n">₹2L+</td><td className="n">—</td><td></td><td></td><td></td><td></td></tr>
         <tr className="tot"><td>September total</td><td className="n">₹11.5L+</td><td className="n">${orders.toLocaleString('en-IN')}+</td><td className="n">₹${Math.round(sales/orders)}</td><td></td><td className="n">${STORES.reduce((a,r)=>a+r[4],0).toLocaleString('en-IN')}</td><td></td></tr>
       </tbody>
     </table></div><div className="swipe">Swipe the table for conversion, sessions and units →</div>
@@ -1337,7 +1337,7 @@ const CHAPTERS=[
   {w:'November 2025',t:'yugaveera.com goes live',d:'First store, first shipments, our own packaging. Dashboard editions follow within weeks. Over a thousand Kandhans sold since.',img:'muruganDash'},
   {w:'Thaipusam 2026',t:'The gopuram',d:'A Rajagopuram that opens into a manjal-kumkum holder goes viral on launch with no reel behind it. Two thousand sold to date; still a best-seller.',img:'gopuramYellow'},
   {w:'Early 2026',t:'Divine Car Hangs and Car Stands',d:'A second design language for a different customer: cute companions for cars and gifting. Regional-deity reels open communities no national brand reaches.',img:'muruganHang'},
-  {w:'Through 2026',t:'One printer becomes twenty-five',d:'Every machine bought from profit. Modelling, multicolour printing, assembly and photography move under one roof in Bengaluru.',img:'muruganSmoke'},
+  {w:'Through 2026',t:'From one printer to a 25-machine infrastructure',d:'Every machine bought from profit. Modelling, multicolour printing, assembly and photography become one documented workflow under one roof in Bengaluru.',img:'muruganSmoke'},
   {w:'Mid 2026',t:'The worlds take shape',d:'Vadiv for minimal form, YugaRupa for modular systems, Mayon for large-format collectibles. Distinct languages, one engine.',img:'vadivMurugan'},
   {w:'Second half 2026',t:'The diaspora finds us',d:'Orders from Malaysia, Singapore, Sri Lanka, the Gulf, the UK and North America, and the first blueprint for making locally in Malaysia.',img:'sriMurugan'},
   {w:'October 2026',t:'Today',d:'A team of 18, 25+ machines, a 6,000 sq ft facility being fitted out, 160K+ followers, 84M lifetime YouTube views, five brands live, three launching, and ₹11.5 lakh of profitable monthly revenue.',img:'arunachalaHang'},
@@ -1359,7 +1359,7 @@ function Journey(){
       <${DeckTag} id="traction"/>
       <span className="kicker">As of 30 September 2026</span>
       <h2>Our numbers.</h2>
-      <p className="lede" style=${{marginTop:20}}>Every figure below comes straight from our Shopify and channel dashboards, and I would rather you check them than take my word. Three storefronts are itemised; international exports, Naar platform orders and direct bulk sales added more than ₹2 lakh on top in September.</p>
+      <p className="lede" style=${{marginTop:20}}>Every figure below comes straight from our Shopify and channel dashboards, and we would rather you check them than take our word. Three storefronts are itemised; international exports, other platform orders and direct bulk sales added more than ₹2 lakh on top in September.</p>
       <${TractionDash}/>
       <div className="jhead"><span className="kicker">How the company was built</span><h3 style=${{fontSize:'clamp(28px,3.2vw,44px)'}}>From one store to a system, in eleven months.</h3></div>
       <div className="track" ref=${ref}>
@@ -1402,7 +1402,7 @@ function Gallery(){
 /* ───────── universe ───────── */
 const WORLDS={
   divine:{name:'Divine',color:'#2A9D8F',r:165,speed:0.000055,desc:'Cute divine companions. Warm, colourful, family-friendly and gifting-led. One shared character universe across every line.'},
-  yuga:{name:'Yuga',color:'#D9A93F',r:268,speed:-0.000032,desc:'Contemporary Indian devotional design. Culturally rooted, design-led, premium.'},
+  yuga:{name:'Yugaverse',lbl:'Yugaverse',color:'#D9A93F',r:268,speed:-0.000032,desc:'Contemporary Indian devotional design. Culturally rooted, design-led, premium.'},
   vadiv:{name:'Vadiv',color:'#E8DCC4',r:352,speed:0.000018,desc:'Minimal geometric spirituality. Quiet, sculptural, material-led, made for interiors.'},
 };
 const BRANDS=[
@@ -1414,7 +1414,7 @@ const BRANDS=[
   {id:'yv',w:'yuga',n:'YugaVeera',logo:'logoYVgold',lk:'bare',hero:'nandi',url:'yugaveera.com',d:'The house. Premium sculptural devotional collectibles, miniatures and temples — Guardians of Dharma. Sub-lines start as collections inside it.',tags:['Collectibles','Temple miniatures','Flagship']},
   {id:'yr',w:'yuga',n:'YugaRupa',logo:'yugarupaSite',lk:'bare',d:'Modular devotional systems: one sculpted base, interchangeable rupams. Eight Lakshmis, nine Durgas, six abodes of Murugan — swap with every festival. The moat is the system, and the system invites repeat purchase.',tags:['Modular','Repeat purchase','Own site']},
   {id:'si',w:'yuga',n:'Siirpam',logo:'logoSiirpam',lk:'dark',d:'Sculpture, from the house of YugaVeera.',tags:['Sculpture']},
-  {id:'my',w:'yuga',n:'Mayon',logo:'logoMayon',hero:'lastGuardian',url:'mayon.studio',d:'Ultra-premium, large devotional sculpture at ₹10,000 and above: numbered, certificated, limited editions in gallery-grade packaging. Divine Accord (1 of 500), The Last Guardian, Lord Venkateswara. The top of the house, launching next.',tags:['₹10,000+','Numbered editions','Next launch']},
+  {id:'my',w:'yuga',n:'Mayon',logo:'logoMayon',hero:'lastGuardian',url:'mayon.studio',d:'Ultra-premium, large devotional sculpture: limited-edition pieces from ₹10,000 to ₹20,000 and upward, certificated and in gallery-grade packaging. Divine Accord (1 of 500), The Last Guardian, Lord Venkateswara. The top of the house, launching next.',tags:['₹10K–20K+','Limited editions','Next launch']},
   {id:'yp',w:'yuga',n:'YugaPrints',d:'Posters, stickers and labels with built-in personalisation, printed to order and shipped from the same floor as everything else.',tags:['Personalisation','Print on demand']},
   {id:'yd',w:'yuga',n:'YugaDecors',d:'Celebrations, gifting and interiors — including flat-pack modular event décor built for overseas customers.',tags:['Events','Gifting','Export']},
   {id:'va',w:'vadiv',n:'Vadiv',logo:'logoVadiv',hero:'ananthaVadiv',url:'vadiv.studio',d:'Pure. Art. Form. An independent design house of low-poly devotional sculpture in muted earth palettes — no ornament, only form.',tags:['Sculpture','Interiors','Independent house']},
@@ -1469,7 +1469,7 @@ function Universe(){
         </div>
         <div className="panel" aria-live="polite" key=${sel}>
           ${b.logo&&b.id!=='yv'&&html`<img className=${'logo '+(b.lk||'')} src=${IMG[b.logo]} alt="" key=${b.id+'l'} />`}
-          <div className="world" style=${{color:W.color}}>${W.name} world</div>
+          <div className="world" style=${{color:W.color}}>${W.lbl||W.name+' world'}</div>
           <h3>${b.n}</h3>
           <p>${b.d}</p>
           <p style=${{fontSize:14}}>${W.desc}</p>
@@ -1478,26 +1478,26 @@ function Universe(){
         </div>
       </div>
       <div className="engine" style=${{marginTop:90}}>
-        <span className="kicker">Next in the universe</span>
+        <span className="kicker">Next in the Yugaverse</span>
         <h2 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginBottom:36}}>The same engine, aimed higher.</h2>
         <div className="four">
-          <div className="mc" style=${{gridTemplateColumns:'1fr'}}><img src=${IMG.divineAccord} alt="" style=${{width:'100%',aspectRatio:'4/3',objectFit:'cover',borderRadius:14,marginBottom:16}}/><div><h3>Mayon: large-format collectibles at ₹10,000+ <span className="chip" style=${{fontSize:11,verticalAlign:'middle'}}>concept renders</span></h3><p>Museum-scale sculpture for collectors: Divine Accord, Kartikeya and Paravani, limited to 500; The Last Guardian; Lord Venkateswara. Resin and multi-material, priced like art.</p></div></div>
+          <div className="mc" style=${{gridTemplateColumns:'1fr'}}><img src=${IMG.divineAccord} alt="" style=${{width:'100%',aspectRatio:'4/3',objectFit:'cover',borderRadius:14,marginBottom:16}}/><div><h3>Mayon: limited-edition large pieces, ₹10,000–20,000+ <span className="chip" style=${{fontSize:11,verticalAlign:'middle'}}>concept renders</span></h3><p>Museum-scale sculpture for collectors: Divine Accord, Kartikeya and Paravani, limited to 500; The Last Guardian; Lord Venkateswara. Resin and multi-material, priced like art.</p></div></div>
           <div className="mc" style=${{gridTemplateColumns:'1fr'}}><img src=${IMG.clock} alt="" style=${{width:'100%',aspectRatio:'4/3',objectFit:'cover',borderRadius:14,marginBottom:16}}/><div><h3>Divine Clocks: devotion on the wall <span className="chip" style=${{fontSize:11,verticalAlign:'middle'}}>concept render</span></h3><p>Illustrated acrylic clocks, the first Divine product that lives in the living room rather than the car. Same characters, same storefront theme, new room of the house.</p></div></div>
         </div>
       </div>
 
       <div className="engine" style=${{marginTop:90}}>
         <span className="kicker">The whole map</span>
-        <h2 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginBottom:16}}>Yuga Group: five live, three launching, forty-one mapped.</h2>
+        <h2 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginBottom:16}}>The Yugaverse: five live, three launching, 21 brands mapped.</h2>
         <p className="lede">Every brand sits in a defined design language, with its own storefront and Instagram handle, and borrows the same design studio, factory, content team and software. What costs money today is five brands and three launches. Everything else on this map is a registered name and a sequence, not a to-do list.</p>
         <div className="pmap">
-          <div className="pg"><h3>Sculptural</h3><small>Accessible premium to ultra premium</small><ul><li><i className="st-live"></i>YugaVeera</li><li><i className="st-next"></i>Mayon, ₹10,000+ numbered editions</li></ul></div>
-          <div className="pg"><h3>Modular & Minimal</h3><small>Systems and form</small><ul><li><i className="st-next"></i>YugaRupa, magnetic modular systems</li><li><i className="st-live"></i>Vadiv, minimal divine products</li></ul></div>
+          <div className="pg"><h3>Sculptural</h3><small>Accessible premium to ultra premium</small><ul><li><i className="st-live"></i>YugaVeera</li><li><i className="st-next"></i>Mayon, limited-edition large pieces from ₹10,000 to ₹20,000 and upward</li></ul></div>
+          <div className="pg"><h3>Modular & Minimalistic Divine Products</h3><small>Systems and form</small><ul><li><i className="st-next"></i>YugaRupa, magnetic modular systems</li><li><i className="st-live"></i>Vadiv, minimalistic divine products</li></ul></div>
           <div className="pg"><h3>Cute Companion: Divine</h3><small>Warm, family, giftable</small><ul><li><i className="st-live"></i>Divine Car Hangs</li><li><i className="st-live"></i>Divine Car Stands</li><li><i className="st-live"></i>Divine Stickers</li><li><i className="st-next"></i>Divine Clocks</li><li><i className="st-next"></i>Divine Labels</li><li><i className="st-next"></i>Divine Magnets</li></ul></div>
           <div className="pg"><h3>Modern Graphic: yuga.studio</h3><small>Mature, bold, architectural</small><ul><li><i className="st-next"></i>Yuga Car Hangs</li><li><i className="st-next"></i>Yuga Car Stands</li><li><i className="st-next"></i>Yuga Clocks</li></ul></div>
           <div className="pg"><h3>Print & Decor</h3><small>Personalisation, spaces, celebrations</small><ul><li><i className="st-next"></i>YugaPrints: posters, stickers, labels</li><li><i className="st-next"></i>YugaDecors: gifts, home, events</li></ul></div>
           <div className="pg"><h3>Heritage & other faiths</h3><small>Reserved for the right moment</small><ul><li><i className="st-res"></i>Bharat Icons</li><li><i className="st-res"></i>Siirpam</li><li><i className="st-res"></i>Christian line (working name Divine Grace)</li><li><i className="st-res"></i>Islamic line (working name Divine Noor)</li></ul></div>
-          <div className="pg" style=${{gridColumn:'1 / -1',background:'linear-gradient(90deg,rgba(184,38,31,.18),rgba(217,169,63,.06))'}}><h3>Deity Media Network</h3><small>Dedicated audiences per deity: cinematic AI content about temples, festivals and stories, feeding one storefront of hand-finished physical products for that deity across all brands</small><ul style=${{gridTemplateColumns:'repeat(auto-fill,minmax(180px,1fr))'}}><li><i className="st-next"></i>Kandhan Returns (Murugan)</li><li><i className="st-next"></i>Shiva Tandava</li><li><i className="st-res"></i>Ganesha</li><li><i className="st-res"></i>Hanuman</li><li><i className="st-res"></i>Krishna</li><li><i className="st-res"></i>Shakti / Amman</li><li><i className="st-res"></i>Ayyappa</li><li><i className="st-res"></i>Venkateswara, and more as they earn scale</li></ul></div>
+          <div className="pg" style=${{gridColumn:'1 / -1',background:'linear-gradient(90deg,rgba(184,38,31,.18),rgba(217,169,63,.06))'}}><h3>Deity Media Network</h3><small>Dedicated audiences per deity: cinematic content about temples, festivals and stories, feeding one storefront of hand-finished physical products for that deity across all brands</small><ul style=${{gridTemplateColumns:'repeat(auto-fill,minmax(180px,1fr))'}}><li><i className="st-next"></i>Kandhan Returns (Murugan)</li><li><i className="st-next"></i>Shiva Tandava</li><li><i className="st-res"></i>Ganesha</li><li><i className="st-res"></i>Hanuman</li><li><i className="st-res"></i>Krishna</li><li><i className="st-res"></i>Shakti / Amman</li><li><i className="st-res"></i>Ayyappa</li><li><i className="st-res"></i>Venkateswara, and more as they earn scale</li></ul></div>
         </div>
         <div className="pleg"><span><i className="st-live"></i>Live</span><span><i className="st-next"></i>Building or launching</span><span><i className="st-res"></i>Reserved</span></div>
       </div>
@@ -1510,14 +1510,14 @@ function Engine(){
   const [ref,v]=useInView(.2);
   const L=[
     ['Design','In-house 3D modellers and product development. A new deity, a new collection, a new brand — designed once, deployed everywhere.'],
-    ['Manufacturing','Our own fleet of multicolour FDM printers, resin, laser and engraving, and finishing — no MOQs, no factory lead times.'],
+    ['Manufacturing','Our own fleet of multicolour FDM printers, resin, laser and engraving, and finishing, run on SOPs we built for every stage — no MOQs, no factory lead times.'],
     ['Content','A content team publishing daily, shooting on location in temple towns. Organic reach is a capability, not luck.'],
     ['Commerce','A checkout site per brand on a shared theme. One customer journey, cross-sold across formats with the same artwork.'],
     ['Software','Built in-house for the studio: the Yugaforge Production OS that runs the farm, the print scheduler, the Query Desk for customer service, the India Post shipping integration, and the Girivalam planner that schedules shoots and festival drops. Our operations run on our own code.'],
   ];
   return html`<div className="engine" ref=${ref}>
     <span className="kicker">Many brands. One engine.</span>
-    <h2 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginBottom:36}}>Every new world is cheaper to launch than the last.</h2>
+    <h2 style=${{fontSize:'clamp(34px,4.6vw,64px)',marginBottom:36}}>Every new world scales faster than the last.</h2>
     <div className="brandsRow">${BRANDS.filter(b=>b.logo).map(b=>html`<span key=${b.id} style=${{color:WORLDS[b.w].color}}>${b.id==='yv'?html`<img src=${IMG.logoYVgold} alt="YugaVeera"/>`:b.n}</span>`)}<span style=${{opacity:.6}}>+ the lines mapped below</span></div>
     <div className="funnel"><svg viewBox="0 0 1000 60" preserveAspectRatio="none">${[100,250,400,500,600,750,900].map((x,i)=>html`<path key=${i} d=${`M${x},0 C${x},30 500,30 500,60`} fill="none" stroke="rgba(217,169,63,.5)" strokeWidth="1.2" strokeDasharray="4 6" style=${{animation:v&&!RM?'dash 1.6s linear infinite':'none'}} />`)}</svg></div>
     <div className="layers">${L.map(([a,b],i)=>html`<div className="layer" key=${a} style=${{opacity:v?1:0,transform:v?'none':'translateY(14px)',transition:`all .7s ${i*.12}s`}}><b>${a}</b><span>${b}</span></div>`)}</div>
@@ -1525,7 +1525,7 @@ function Engine(){
 }
 
 /* ───────── reach & distribution ───────── */
-const FLY=[["A story","Every product starts with a deity, a temple or a festival."],["A reel","We publish daily. The audience tells us what it wants."],["A community","Comments turn into enquiries, enquiries into a following."],["A storefront","Each brand sells direct, on its own store."],["Our studio","Made to order on our own machines."],["A doorstep","Packed and shipped by our own team."],["A shared moment","Customers post it, and it becomes the next story."]];
+const FLY=[["A story","Every product starts with a deity, a temple or a festival."],["A reel","We publish daily. The audience tells us what it wants."],["A community","Comments turn into enquiries, enquiries into a following."],["A storefront","Each brand sells direct, on its own store."],["Our studio","Made to order on our own machines."],["A doorstep","Packed and shipped by our own team."],["A shared moment","Customers post it, and it becomes the next story."],["Scale up & repeat","Winners scale across formats and brands, and the cycle runs again."]];
 function Wheel(){
   const [ref,v]=useInView(.3);const [th,setTh]=useState(RM?0:0);
   useEffect(()=>{if(RM||!v)return;let raf,last=performance.now();const st=t=>{const dt=Math.max(0,Math.min(50,t-last));last=t;setTh(x=>{const y=(x+dt*.026)%360;return Number.isFinite(y)?y:0});raf=requestAnimationFrame(st)};raf=requestAnimationFrame(st);return()=>cancelAnimationFrame(raf)},[v]);
@@ -1551,7 +1551,7 @@ function Wheel(){
   </svg>
   <div className="fhub" aria-live="polite"><div className="fcenter" key=${act}><small>Step ${act+1} of ${n}</small><b>${FLY[act][0]}</b><span>${FLY[act][1]}</span></div></div>
   </div>
-  <p className="fcap">The flywheel: every order becomes the next story.</p></div>`;
+  <p className="fcap">The flywheel: every order becomes the next story. Scale up, and repeat.</p></div>`;
 }
 function Reach(){
   const [ref,v]=useInView(.3);
@@ -1563,7 +1563,7 @@ function Reach(){
           <${DeckTag} id="reach"/><span className="kicker">Eighty-four million views on YouTube, seventeen million on Instagram last month</span>
           <div className="big"><span><${CountUp} to=${100} start=${v} />M+</span><small>views</small></div>
         </div>
-        <p className="lede" style=${{opacity:1}}>across our own YouTube and Instagram channels: 84 million lifetime on YouTube alone, and 17 million on Instagram in September. Organic content does the heavy lifting; we hold paid ads to a disciplined 15% of sales. This audience is the cheapest and most trusted launch channel any brand in our universe will ever have, and we own it.</p>
+        <p className="lede" style=${{opacity:1}}>across our own YouTube and Instagram channels: 84 million lifetime on YouTube alone, and 17 million on Instagram in September. Organic content does the heavy lifting; we hold paid ads to a disciplined 15% of sales. This audience is the most scalable and most trusted launch channel any brand in the Yugaverse will ever have, and we own it.</p>
       </div>
       <div className="cards">
         <div className="rc"><b>160K+</b><span>followers and subscribers across six brand-owned accounts.</span></div>
@@ -1575,7 +1575,7 @@ function Reach(){
         <div>
           <span className="kicker">Why it compounds</span>
           <h2 style=${{fontSize:'clamp(34px,4.4vw,60px)'}}>Faith is local. So is our content.</h2>
-          <p style=${{maxWidth:'52ch',marginTop:20}}>Every village and town has its own guardian deity, its own festival day, its own devotees who rarely see their god made with care. Our regional-deity reels reach them — and each one opens a new community.</p>
+          <p style=${{maxWidth:'52ch',marginTop:20}}>Every village and town has its own guardian deity, its own festival day, its own devotees who rarely see their god made with care. Regional deities are our focus. Our regional-deity reels reach them, and each one opens a new community. Our ambition is bold: to bring every regional god of India to life in our design language, one community at a time.</p>
           <div className="regional">
             <div>Pedamma Thalli<small>Recent breakout</small></div>
             <div>Male Mahadeshwara<small>Recent breakout</small></div>
@@ -1608,7 +1608,7 @@ function Studio(){
       <div>
         <${DeckTag} id="studio"/>
         <h2>Twenty-five machines today.<br/>Five times the space next.</h2>
-        <p className="lede" style=${{marginTop:24}}>We make what we sell. Nobody in our supply chain can slow us down, undercut us or copy us from the inside. A design goes from idea to customer in days, a festival drop needs no minimum order, and every SKU can be made to order. Every machine so far was bought from profit, one printer to twenty-five; our new 6,000 sq ft facility, five times our current floor, is being fitted out from our own funds.</p>
+        <p className="lede" style=${{marginTop:24}}>We make what we sell. Nobody in our supply chain can slow us down, undercut us or copy us from the inside. A design goes from idea to customer in days, a festival drop needs no minimum order, and every SKU can be made to order. We grew from one printer to a 25-machine production infrastructure, every machine bought from profit and every stage run as a defined workflow; our new 6,000 sq ft facility, five times our current floor, is being fitted out from our own funds.</p>
         <div className="facts" ref=${ref}>
           <div><b><${CountUp} to=${15} start=${v}/></b><span>Snapmaker U1 multicolour printers</span></div>
           <div><b><${CountUp} to=${10} start=${v}/></b><span>Bambu P1-series printers</span></div>
@@ -1649,7 +1649,7 @@ function Growth({sc,setSc}){
     <div className="wrap">
       <${DeckTag} id="growth"/>
       <h2>From ₹11.5 lakh a month<br/>toward ₹1 crore.</h2>
-      <p className="lede" style=${{marginTop:24}}>Two plans over 18 months, one for each size of round. I built both on the numbers above, not on hope. Choose a round to see its path.</p>
+      <p className="lede" style=${{marginTop:24}}>Two plans over 18 months, one for each size of round. We built both on the numbers above, not on hope. Choose a round to see its path.</p>
       <div style=${{marginTop:30}} className="seg" role="tablist">${['A','B'].map(k=>html`<button key=${k} role="tab" aria-selected=${sc===k} className=${sc===k?'on':''} onClick=${()=>setSc(k)}>${PLAN[k].label} · ${PLAN[k].inv}</button>`)}</div>
       <div className="chartBox" ref=${ref}>
         <svg viewBox=${`0 0 ${Wd} ${Ht}`} role="img" aria-label="Monthly revenue projection in lakh rupees">
@@ -1814,7 +1814,7 @@ function Round({sc,setSc}){
         </div>
       </div>
       <p className="fine" style=${{marginTop:30,opacity:.8}}>Planning allocations. Capital is released against performance, not spent because it has been raised.</p>
-      <p className="fine" style=${{marginTop:30,opacity:.8}}>How we arrived at ₹18 crore is set out in the previous section, and I will defend every line of it in the room.</p>
+      <p className="fine" style=${{marginTop:30,opacity:.8}}>How we arrived at ₹18 crore is set out in the previous section, and we will walk through every line of it in the room.</p>
 
     </div>
   </section>`;
@@ -1873,7 +1873,7 @@ function Proof(){
       <h2>Five milestones in eighteen months.</h2>
       <ol>
         <li><b>₹70–90 lakh a month by month 18, earned across several brands, not one.</b></li>
-        <li><b>Production well beyond twenty-five machines, at the same print quality and delivery standard.</b></li>
+        <li><b>Production infrastructure well beyond twenty-five machines, held to the same SOPs for print quality and delivery.</b></li>
         <li><b>Paid acquisition layered on our organic reach, held inside our 15%-of-sales rule.</b></li>
         <li><b>A leadership layer running production, fulfilment and service day to day.</b></li>
         <li><b>A working micro-factory in Malaysia: the template for every market after it.</b></li>
@@ -1892,7 +1892,7 @@ function Close(){
       <h2>The numbers are the floor. The universe is the upside.</h2>
       <p className="lede" style=${{margin:'30px auto 0'}}>We are not looking for the most money. We are looking for the right partner, at the moment capital turns a proven model into a dominant one. Beyond the cheque, we want a partner who brings:</p>
       <div className="partners">${['Distribution','Retail','International expansion','Manufacturing','Consumer brands','Strategic partnerships','Institutional fundraising'].map(t=>html`<span className="chip" key=${t} style=${{fontSize:15,padding:'10px 18px',borderColor:'rgba(217,169,63,.4)'}}>${t}</span>`)}</div>
-      <p style=${{marginTop:40,opacity:.8}}>Our data room is open: Shopify analytics, channel dashboards and cost sheets behind every number on this page. Ask for anything on it, and I will show you the screen it came from.</p>
+      <p style=${{marginTop:40,opacity:.8}}>Our data room is open: Shopify analytics, channel dashboards and cost sheets behind every number on this page. Ask for anything on it, and we will show you the screen it came from.</p>
       <div className="sign">Prabhakaran Raju and Sindhura<small>Co-founders, Yugaveera Studio — Bengaluru</small></div>
       <p className="disclaim">Historical figures are taken from our Shopify, Instagram and YouTube dashboards and are available in the data room. Projections are management planning cases and depend on execution.</p>
     </div>
@@ -1906,12 +1906,12 @@ function Model(){
     <div className="atm glow"></div>
     <div className="wrap">
       <${DeckTag} id="model"/>
-      <h2>Direct, made to order,<br/>and cheaper with every brand.</h2>
+      <h2>Direct, made to order,<br/>and scalable with every brand.</h2>
       <div className="four">
         <div className="mc"><i>D2C</i><div><h3>We own the customer</h3><p>Each brand runs its own storefront on a shared theme. No marketplace commissions, full margin, and first-party data on what each community buys.</p></div></div>
         <div className="mc"><i>MTO</i><div><h3>Make to order, stock the heroes</h3><p>Long-tail SKUs are printed on demand; only proven hero products are stocked. Inventory risk stays low while the catalogue stays wide.</p></div></div>
         <div className="mc"><i>×n</i><div><h3>One artwork, many formats</h3><p>The same deity sells as a figure, a car hang, a sticker, a print and a modular rupam. Every product page cross-sells the collection; YugaRupa's swappable system is built for repeat purchase.</p></div></div>
-        <div className="mc"><i>+1</i><div><h3>Portfolio leverage</h3><p>Design, factory, content, commerce and software are shared. Launching the next brand costs a design language and a storefront, not a company.</p></div></div>
+        <div className="mc"><i>+1</i><div><h3>Portfolio leverage</h3><p>Design, factory, content, commerce and software are shared. Each new brand plugs into infrastructure that already scales: it needs a design language and a storefront, not a new company.</p></div></div>
       </div>
     </div>
   </section>`;
@@ -1930,7 +1930,7 @@ function Market(){
         <div className="mk"><b><${CountUp} to=${46} start=${v}/>%</b><span>of that market is still unorganised: temple-side vendors, informal makers, unbranded supply. Religious items and merchandise is one of its named segments.</span><small>IMARC Group, sector split, 2025</small></div>
       </div>
       <div className="three">
-        <div className="oc"><span className="n">Home</span><h3>India, direct</h3><p>Our starting market: Tamil Nadu, Karnataka, Andhra, Telangana and Kerala first, where regional deities give us content no national brand can make.</p></div>
+        <div className="oc"><span className="n">Home</span><h3>India, direct</h3><p>Our starting market: Tamil Nadu, Karnataka, Andhra, Telangana and Kerala first, where regional deities give us content no national brand can make. Our ambition: every regional deity, made with care.</p></div>
         <div className="oc"><span className="n">Abroad</span><h3>The diaspora</h3><p>Malaysia, Singapore, Sri Lanka, the Gulf, the UK and North America already order from us. Local manufacturing turns shipping-led sales into a real market.</p></div>
         <div className="oc"><span className="n">Beyond</span><h3>Other faiths, same engine</h3><p>Vadiv already sells on form alone to design buyers. The system is faith-agnostic: Christian and Islamic lines are mapped as working names, with the same car, clock, magnet and gift formats.</p></div>
       </div>
@@ -1949,14 +1949,15 @@ function Team(){
       <h2>Two founders. A team of eighteen.<br/>Now we build the layer beneath.</h2>
       <div className="team" style=${{gridTemplateColumns:'1fr'}}>
         <div className="four" style=${{marginTop:0}}>
-          <div className="founder"><div className="av">P</div><div><h3>Prabhakaran Raju</h3><p style=${{margin:'4px 0 8px',color:'var(--gold2)',fontSize:14}}>Co-founder · design, product and brand</p><p style=${{margin:0,color:'var(--muted)',fontSize:15}}>I trained as an architect (B.Arch). I design every product and brand you have seen on this page, I write the software our studio runs on, and I built the print farm from the first machine.</p></div></div>
-          <div className="founder"><div className="av" style=${{background:'radial-gradient(circle at 35% 35%,#8fd3c8,#2A9D8F 70%)'}}>S</div><div><h3>Sindhura</h3><p style=${{margin:'4px 0 8px',color:'var(--gold2)',fontSize:14}}>Co-founder · operations and fulfilment</p><p style=${{margin:0,color:'var(--muted)',fontSize:15}}>Sindhura comes from IT. She runs fulfilment, customer service and the day-to-day operations that turn 1,500+ orders a month into deliveries, and nothing leaves our studio without passing through her system.</p></div></div>
+          <div className="founder"><div className="av">P</div><div><h3>Prabhakaran Raju</h3><p style=${{margin:'4px 0 8px',color:'var(--gold2)',fontSize:14}}>Co-founder · Design Head and ideator</p><p style=${{margin:0,color:'var(--muted)',fontSize:15}}>An architect by profession (B.Arch) and the ideator behind every product and brand on this page; each design is his personal, original creation. He set up our production infrastructure from its very first machine, and works with the team that builds the software and SOPs the studio runs on.</p></div></div>
+          <div className="founder"><div className="av" style=${{background:'radial-gradient(circle at 35% 35%,#8fd3c8,#2A9D8F 70%)'}}>S</div><div><h3>Sindhura</h3><p style=${{margin:'4px 0 8px',color:'var(--gold2)',fontSize:14}}>Co-founder · operations and fulfilment</p><p style=${{margin:0,color:'var(--muted)',fontSize:15}}>Sindhura comes from IT. She runs fulfilment, customer service and the day-to-day operations that turn 1,500+ orders a month into deliveries, on SOPs she wrote for every step. Nothing leaves our studio without passing through the system she built.</p></div></div>
         </div>
-        <p style=${{color:'var(--muted)',marginTop:10,maxWidth:'70ch'}}>Design on one side, systems and delivery on the other: the two halves a product company needs, and we have run both hands-on from the first order. We also build our own operating software: the Yugaforge Production OS for the print farm, the Girivalam planner for shoots and festival drops, the Query Desk for customer service, and the India Post shipping integration. All of it belongs to YugaVeera Private Limited; nothing else is part of the group.</p>
+        <p style=${{color:'var(--muted)',marginTop:10,maxWidth:'70ch'}}>Design on one side, systems and delivery on the other: the two halves a product company needs, and we have run both hands-on from the first order. We built standard operating procedures for every stage, from modelling and printing to quality checks, packing and dispatch, so the team runs the work day to day under our oversight. We also build our own operating software: the Yugaforge Production OS for the print farm, the Girivalam planner for shoots and festival drops, the Query Desk for customer service, and the India Post shipping integration. All of it belongs to YugaVeera Private Limited; nothing else is part of the group.</p>
         <div className="four" style=${{marginTop:30}}>
           <div>
             <div className="roles">
               <div><span>Team today</span><span>18 people across design, production, content, service and dispatch</span></div>
+              <div><span>Standard operating procedures</span><span>written by us for every stage, run by the team under our oversight</span></div>
               <div><span>3D modelling & print operations</span><span>in-house modellers and print operators</span></div>
               <div><span>Content production</span><span>dedicated team, daily reels, on-location shoots</span></div>
               <div><span>Customer service</span><span>executives on our own query desk</span></div>
@@ -1988,7 +1989,7 @@ function Economics(){
     <div className="wrap">
       <${DeckTag} id="economics"/>
       <h2>Half of every rupee is contribution.<br/>We reinvest all of it.</h2>
-      <p className="lede" style=${{marginTop:24}}>This is our cost structure per rupee of sales, as we run it today. We are profitable. Profit has bought every machine we own, one printer to twenty-five, and is fitting out the new facility right now. This raise buys speed, not survival.</p>
+      <p className="lede" style=${{marginTop:24}}>This is our cost structure per rupee of sales, as we run it today. We are profitable. Profit has built our production infrastructure, from one printer to twenty-five machines, and is fitting out the new facility right now. This raise buys speed, not survival.</p>
       <div className="water" ref=${ref}>
         ${COSTS.map(([n,p,c],i)=>html`<div className="wrow" key=${n}><span>${n}</span><div className="bar"><div className="seg2" style=${{left:0,width:p*2+'%',background:c,transform:`scaleX(${v?1:0})`,transitionDelay:i*.1+'s'}}></div></div><span className="v">${p}%</span></div>`)}
         <div className="wrow total"><span>Gross margin before marketing</span><div className="bar"><div className="seg2" style=${{left:0,width:(100-cogs)*2+'%',background:'linear-gradient(90deg,#8fd3c8,#2A9D8F)',transform:`scaleX(${v?1:0})`,transitionDelay:'.5s'}}></div></div><span className="v">${100-cogs}%</span></div>
@@ -2049,7 +2050,7 @@ function Risks(){
     ['Platform dependence','Reach on Instagram and YouTube is earned, not owned. <strong>Mitigation:</strong> six accounts across two platforms, ad spend capped at 15% of sales, and the round builds owned channels: WhatsApp, email and retail.'],
     ['Religious sensitivity','Devotional design demands respect. <strong>Mitigation:</strong> iconography is kept correct and respectful; every concept is a change of form, never of doctrine; 200K+ comments to date have been overwhelmingly enquiries, not objections.'],
     ['Copying','Any design can be reprinted. <strong>Mitigation:</strong> protection for hero designs, character IP, finishing quality, and a release cadence a copier cannot match.'],
-    ['Founder dependency','Key decisions on design and operations still run through the two of us. <strong>Mitigation:</strong> a team of 18 already runs production, content, service and dispatch day to day; the round\u2019s first use adds operational leads above them, and our own software already encodes the process.'],
+    ['Founder dependency','Key decisions on design and operations still run through the two of us. <strong>Mitigation:</strong> a team of 18 already runs production, content, service and dispatch day to day; they work to SOPs we built for every stage, under our oversight; the round\u2019s first use adds operational leads above them, and our own software already encodes the process.'],
     ['Cash-on-delivery returns','COD is a share of Indian D2C orders and carries RTO risk. <strong>Mitigation:</strong> returns and wastage are held inside 5% of sales and tracked per store.'],
     ['Input costs','Filament, resin and imported printers move with currency and duty. <strong>Mitigation:</strong> material is 10% of sales; a direct filament dealership would cut it 20–25%, and bulk buying is part of the working-capital plan.'],
     ['Technology cycles','Printer technology improves every few months. <strong>Mitigation:</strong> we built our model to ride that curve: buy the best current machine, resell older units while they hold value, never tie the farm to one model.'],
@@ -2071,11 +2072,11 @@ function FAQ(){
     ['What does a customer cost you?','Organic content does most of the work. Paid ads are capped at 15% of sales, which on a ₹622 blended order is under ₹100 of paid acquisition per order. We scale ads only where conversion holds.'],
     ['Why not buy a hundred printers tomorrow?','Because the machines are improving every few months and we would rather own the best fleet than the biggest. We rotate: buy the best current machine, sell older units while they hold value. The new 6,000 sq ft facility is ready for that fleet; the round buys the machines when the right ones arrive.'],
     ['How repeatable is demand?','The Kandhan reel started it. The gopuram did it again at Thaipusam with 2,000+ sold and no reel. Regional-deity reels do it monthly: a single Bala Krishna car hang went from 1 to 47 orders in a month off one reel. The units report shows it: five different YugaVeera concepts each above 250 units, and the top product at Divine Car Hangs is only 5% of its volume. Repeatability is the thesis.'],
-    ['Where does AI fit in?','AI is our sketchbook and our storyteller. It lets us test an idea with an audience before we model it, and it powers the content that finds our customers. Every product we sell is a physical, multicolour-printed divine product made in our own studio.'],
+    ['How is a new design created?','Every design starts with our design team: research into the deity, its temple and its iconography, then original concept work and 3D modelling in-house, a physical prototype on our own machines, and a reel to test demand before stock. Every product we sell is an original creation, multicolour-printed and finished in our own studio.'],
     ['What stops a copy?','Character IP, protected hero designs, finishing quality a desktop printer does not reach, engineered systems such as magnetic swapping, a daily content engine with 100M+ views, and a release cadence tied to the festival calendar.'],
     ['How dependent is this on Instagram and YouTube?','Reach is earned there today across six accounts. Ads are capped at 15% of sales, and the round funds owned channels: WhatsApp, email and retail, plus the Deity Media Network, which turns each deity audience into a community we address directly.'],
     ['What about returns and COD?','Returns and wastage together are held inside 5% of sales and tracked per store. Divine lines run at 5–6% conversion with low ticket sizes, which keeps return exposure small.'],
-    ['What entity am I investing in?','YugaVeera Private Limited, Bengaluru, which owns the brands, the studio and the tooling described here. PortraitXAI remains our AI-art page where the Kandhan reel first ran; it is a channel, not a company in this raise.'],
+    ['What entity am I investing in?','YugaVeera Private Limited, Bengaluru, which owns the brands, the studio and the tooling described here. PortraitXAI remains our creative content page where the Kandhan reel first ran; it is a channel, not a company in this raise.'],
     ['What exactly does the money buy?','Capacity, people and inventory, in that order: manufacturing expansion, a first layer of operational leads, working capital to buy material direct, paid acquisition where it converts, and the Malaysia pilot. The new facility is already funded from profit.'],
   ];
   return html`<section id="faq" className="sec ivoryBg">
@@ -2179,7 +2180,7 @@ function App(){
       <${Team}/>
       <${Close}/>
     </main>
-    <footer className="foot"><div className="wrap"><span>YugaVeera Private Limited · Yuga Group · Bengaluru · <a href="https://yugaveera.com" target="_blank" rel="noopener">yugaveera.com</a></span><span>${VERSION} · Confidential, prepared for prospective investors</span></div></footer>
+    <footer className="foot"><div className="wrap"><span>YugaVeera Private Limited · Yugaverse · Bengaluru · <a href="https://yugaveera.com" target="_blank" rel="noopener">yugaveera.com</a></span><span>${VERSION} · Confidential, prepared for prospective investors</span></div></footer>
   <//>`;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(html`<${App}/>`);
