@@ -857,6 +857,22 @@ h2.rv{padding-bottom:.12em}
 @keyframes fcin{from{opacity:0}to{opacity:1}}
 .reach .lower{align-items:center;gap:clamp(30px,4vw,56px)}
 @media (max-width:900px){.uni .grid>div:first-child{position:static}}
+
+/* phone fixes: keep stat tiles, toggles and lists inside the screen */
+.tgrid>*,.achieve>*,.beats>*{min-width:0}
+@media (max-width:600px){
+  .beats{grid-template-columns:1fr!important}
+  .tgrid{gap:10px}
+  .tt{padding:18px 16px}
+  .tt b{font-size:30px}
+  .tt b em{display:block;margin:6px 0 0;font-size:15px}
+  .achieve{grid-template-columns:1fr}
+  .seg{display:flex;flex-wrap:wrap;border-radius:18px;max-width:100%}
+  .seg button{padding:9px 14px;font-size:14px}
+}
+.reach .cards>*,.donut>*,.concepts>*,.cap>*,.lenses>*,.rr>*{min-width:0}
+@media (max-width:600px){.donut li{overflow-wrap:anywhere}.rc a{overflow-wrap:anywhere}}
+@media (max-width:400px){.reach .cards,.concepts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
