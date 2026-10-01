@@ -873,6 +873,8 @@ h2.rv{padding-bottom:.12em}
 .reach .cards>*,.donut>*,.concepts>*,.cap>*,.lenses>*,.rr>*{min-width:0}
 @media (max-width:600px){.donut li{overflow-wrap:anywhere}.rc a{overflow-wrap:anywhere}}
 @media (max-width:400px){.reach .cards,.concepts{grid-template-columns:1fr}}
+@media (max-width:900px){.round .grid{grid-template-columns:1fr}}
+@media (max-width:600px){.calc{padding:26px 22px 14px}.calc .pct{font-size:64px}.calc .row b{font-size:26px}.calc .row b.shape{font-size:19px}}
 </style>
 </head>
 <body>
@@ -1134,9 +1136,9 @@ function Genre(){
   const rows=[
     ["Colour","Hand-painted after casting","Spray-painted over a mould","Printed in full colour, layer by layer"],
     ["A new design","A new mould","A new mould and a minimum order","A new file, printed in-house the same week"],
-    ["Form","Classical poses","Copies of classical poses","New forms: dashboard figures, ritual holders, magnetic and modular pieces"],
+    ["Form","Classical poses","Classical poses","New forms: dashboard figures, ritual holders, magnetic and modular pieces"],
     ["Minimum order","Small batches","Thousands per mould","One"],
-    ["Story","None","None","Characters, content and a community"],
+    ["Story","Rooted in temple tradition","Catalogue-led","Characters, content and a community"],
   ];
   return html`<section id="genre" className="sec stoneBg">
     <div className="atm glow"></div>
@@ -1625,7 +1627,7 @@ function Studio(){
     <div className="wrap"><div className="fleet sfleet">
           <div><b>₹26L</b><span>of machines on the floor, every one bought from profit: U1 at ₹1.1L, P1 at ₹95k.</span></div>
           <div><b>Rotate, don't hoard</b><span>Printer technology is in a gold rush; better, faster machines arrive every few months. We buy the best available, sell older units while they hold value, and keep the farm at the frontier instead of marrying one model.</span></div>
-          <div><b>200 kg / month</b><span>of filament today, bought through distributors. A direct dealership with manufacturers in China is the next step: 20–25% cheaper material.</span></div>
+          <div><b>200 kg / month</b><span>of filament today, bought through distributors. Sourcing directly from manufacturers is the next step: 20–25% lower material cost.</span></div>
         </div></div>
   </section>`;
 }
@@ -1648,8 +1650,8 @@ function Growth({sc,setSc}){
   return html`<section id="growth" className="sec stoneBg">
     <div className="wrap">
       <${DeckTag} id="growth"/>
-      <h2>From ₹11.5 lakh a month<br/>toward ₹1 crore.</h2>
-      <p className="lede" style=${{marginTop:24}}>Two plans over 18 months, one for each size of round. We built both on the numbers above, not on hope. Choose a round to see its path.</p>
+      <h2>The 18-month<br/>operating plan.</h2>
+      <p className="lede" style=${{marginTop:24}}>Monthly revenue grows from ₹11.5 lakh today to ₹70–90 lakh by month 18, building toward ₹1 crore. The plan rests on the traction set out above and is modelled across the 5–10% range of this round.</p>
       <div style=${{marginTop:30}} className="seg" role="tablist">${['A','B'].map(k=>html`<button key=${k} role="tab" aria-selected=${sc===k} className=${sc===k?'on':''} onClick=${()=>setSc(k)}>${PLAN[k].label} · ${PLAN[k].inv}</button>`)}</div>
       <div className="chartBox" ref=${ref}>
         <svg viewBox=${`0 0 ${Wd} ${Ht}`} role="img" aria-label="Monthly revenue projection in lakh rupees">
@@ -1670,7 +1672,7 @@ function Growth({sc,setSc}){
           </g>`}
           ${labels.map((l,i)=>html`<rect key=${'h'+i} x=${X(i)-((Wd-pl-pr)/6)} y=${pt} width=${(Wd-pl-pr)/3} height=${Ht-pt-pb} fill="transparent" onMouseEnter=${()=>setHi(i)} onClick=${()=>setHi(i)} />`)}
         </svg>
-        <p className="fine" style=${{margin:'14px 0 0'}}>Bands show the planning range; the line is its midpoint. Month 18 annualised: <b style=${{color:'#F0CF7A'}}>${P.arr}</b>.</p>
+        <p className="fine" style=${{margin:'14px 0 0'}}>Shaded bands show the planning range; the line marks its midpoint. Annualised revenue at month 18: <b style=${{color:'#F0CF7A'}}>${P.arr}</b>.</p>
       </div>
       <${ReturnsSim}/>
     </div>
@@ -1718,24 +1720,24 @@ function ReturnsSim(){
   const Y=val=>pt+(H-pt-pb)*(1-Math.min(1,val/ymax));
   const stair='M'+st.map((x,i)=>`${colX(i)-bw/2},${Y(x)} L${colX(i)+bw/2},${Y(x)}`).join(' L');
   return html`<div className="rsim" ref=${ref}>
-    <span className="kicker">How your stake grows</span>
-    <h3 className="rsim-h">A smaller slice of a much bigger company.</h3>
-    <p className="rlede">Startup value doesn\u2019t move like a share price. It steps up at each round, as revenue proves the next valuation. Your percentage gets a little smaller each time; the company it belongs to gets much bigger.</p>
+    <span className="kicker">Investor returns model</span>
+    <h3 className="rsim-h">Value creation across funding rounds.</h3>
+    <p className="rlede">Private-company value is re-priced at each financing, as revenue supports the next valuation. Each round brings modest dilution to existing holders, while the enterprise value underlying the holding expands. The model below sets out that progression under three growth cases.</p>
     <div className="rgrid2">
       <div className="rctl">
-        <div className="rsl"><div className="rsl-h"><label htmlFor="rs-pct">Your stake in this round</label><b>${pct.toFixed(1).replace('.0','')}% · ${crf(inv)}</b></div><input id="rs-pct" type="range" min="5" max="10" step=".5" value=${pct} onInput=${e=>setPct(+e.target.value)} onChange=${e=>setPct(+e.target.value)}/></div>
-        <div className="rsl"><div className="rsl-h"><label>Growth path</label></div>
+        <div className="rsl"><div className="rsl-h"><label htmlFor="rs-pct">Stake and investment</label><b>${pct.toFixed(1).replace('.0','')}% · ${crf(inv)}</b></div><input id="rs-pct" type="range" min="5" max="10" step=".5" value=${pct} onInput=${e=>setPct(+e.target.value)} onChange=${e=>setPct(+e.target.value)}/></div>
+        <div className="rsl"><div className="rsl-h"><label>Growth case</label></div>
           <div className="rseg">${SCN.map((s,i)=>html`<button key=${s.k} className=${si===i?'on':''} style=${{'--c':s.c}} onClick=${()=>setSi(i)}><i></i>${s.n}</button>`)}</div>
           <p className="rnote">${S.d}</p></div>
-        <div className="rsl"><div className="rsl-h"><label htmlFor="rs-m">Valuation at each round, × annual revenue</label><b>${mult}×</b></div><div className="rtier"><span className=${mult<=4?"on":""}>Typical D2C brand · 2–4×</span><span className=${mult>4&&mult<=7?"on":""}>High-growth consumer brand · 4.5–7×</span><span className=${mult>7?"on":""}>IP-led category leader · 7.5–10×</span></div><input id="rs-m" type="range" min="2" max="10" step=".5" value=${mult} onInput=${e=>setMult(+e.target.value)} onChange=${e=>setMult(+e.target.value)}/></div>
-        <div className="rsum"><span>At year 5, your stake is worth</span><b style=${{color:S.c}}>${crf(st[3])}</b><em>${(st[3]/invL).toFixed(1)}× the ${crf(invL)} you put in, holding ${ow[3].toFixed(1)}% of a ${crf(co[3])} company.</em></div>
+        <div className="rsl"><div className="rsl-h"><label htmlFor="rs-m">Valuation multiple, × annual revenue</label><b>${mult}×</b></div><div className="rtier"><span className=${mult<=4?"on":""}>Typical D2C brand · 2–4×</span><span className=${mult>4&&mult<=7?"on":""}>High-growth consumer brand · 4.5–7×</span><span className=${mult>7?"on":""}>IP-led category leader · 7.5–10×</span></div><input id="rs-m" type="range" min="2" max="10" step=".5" value=${mult} onInput=${e=>setMult(+e.target.value)} onChange=${e=>setMult(+e.target.value)}/></div>
+        <div className="rsum"><span>Implied value of the stake at year 5</span><b style=${{color:S.c}}>${crf(st[3])}</b><em>${(st[3]/invL).toFixed(1)}× the initial investment of ${crf(invL)}, representing ${ow[3].toFixed(1)}% of a company valued at ${crf(co[3])}.</em></div>
       </div>
       <div className="rchart2">
         <svg viewBox=${`0 0 ${W} ${H+70}`} role="img" aria-label="Value of the investor stake and company valuation at each funding milestone">
           <defs><linearGradient id="stg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor=${S.c} stopOpacity=".95"/><stop offset="1" stopColor=${S.c} stopOpacity=".3"/></linearGradient></defs>
           <line x1=${pl} x2=${W-pr} y1=${H-pb} y2=${H-pb} stroke="rgba(246,235,214,.18)"/>
           <line x1=${pl} x2=${W-pr} y1=${Y(invL)} y2=${Y(invL)} stroke="#F6EBD6" strokeOpacity=".45" strokeDasharray="5 6"/>
-          <text x=${W-pr} y=${Y(invL)-7} textAnchor="end" className="rax" style=${{fill:'#F6EBD6',opacity:.7}}>Your ${crf(invL)}</text>
+          <text x=${W-pr} y=${Y(invL)-7} textAnchor="end" className="rax" style=${{fill:'#F6EBD6',opacity:.7}}>Investment ${crf(invL)}</text>
           ${MS.map((x,i)=>{const cx=colX(i),y=Y(st[i]);return html`<g key=${x.t}>
             <rect x=${cx-bw/2} y=${v?y:H-pb} width=${bw} height=${v?Math.max(3,H-pb-y):0} rx="10" fill="url(#stg)" style=${{transition:'y 1.1s cubic-bezier(.2,.7,.2,1) '+(i*.15)+'s, height 1.1s cubic-bezier(.2,.7,.2,1) '+(i*.15)+'s'}}/>
             <text x=${cx} y=${y-12} textAnchor="middle" className="rco" style=${{fill:S.c,opacity:v?1:0,transition:'opacity .6s '+(i*.15+.6)+'s'}}>${crf(st[i])}</text>
@@ -1745,25 +1747,25 @@ function ReturnsSim(){
           </g>`})}
           <path d=${stair} fill="none" stroke=${S.c} strokeWidth="1.5" strokeDasharray="3 4" opacity=${v?.7:0} style=${{transition:'opacity .6s 1s'}}/>
         </svg>
-        <div className="rkey"><span><i style=${{background:S.c}}></i>Value of your stake</span><span>Below each step: your ownership, and the company valuation at that round</span></div>
+        <div className="rkey"><span><i style=${{background:S.c}}></i>Implied stake value</span><span>Below each step: ownership, and company valuation at that round</span></div>
       </div>
     </div>
     <div className="whynow">
       <div className="wn-l">
-        <span className="kicker">The cost of waiting</span>
-        <h4>The same 1% gets more expensive every round.</h4>
-        <p>Today 1% of YugaVeera costs ${crf(co[0]/100)}. On the ${S.n.toLowerCase()} path, the same 1% costs ${crf(co[1]/100)} at the next round and ${crf(co[2]/100)} by year 3. This round is priced on today\u2019s revenue. Every round after it will be priced on more.</p>
+        <span className="kicker">Entry pricing</span>
+        <h4>Entry valuation rises with each round.</h4>
+        <p>At this round, 1% of YugaVeera is priced at ${crf(co[0]/100)}. Under the ${S.n.toLowerCase()} case, the same 1% would be priced at ${crf(co[1]/100)} at the next round and ${crf(co[2]/100)} by year 3. This round is priced on current revenue; subsequent rounds will be priced on materially higher revenue.</p>
       </div>
       <div className="wn-bars">${MS.slice(0,3).map((x,i)=>html`<div key=${x.t}><b style=${{color:i===0?'var(--gold2)':'var(--ivory)'}}>${crf(co[i]/100)}</b><i style=${{height:(v?Math.max(6,co[i]/co[2]*100):0)+'%',background:i===0?'linear-gradient(#F0CF7A,#D9A93F)':'rgba(246,235,214,.14)'}}></i><span>${x.t}</span><em>per 1%</em></div>`)}</div>
     </div>
     <div className="wnchips">
-      <div><b>₹0</b><span>raised to date. You are the first outside capital in the company.</span></div>
-      <div><b>5–10%</b><span>is all we are offering, to one or two partners.</span></div>
-      <div><b>Before</b><span>the 6,000 sq ft facility, Mayon, YugaRupa and Malaysia go live. None of it is in today\u2019s price.</span></div>
-      <div><b>+234%</b><span>flagship growth in the last quarter. The next valuation is being earned now.</span></div>
+      <div><b>₹0</b><span>external capital raised to date. This is the company\u2019s first outside round.</span></div>
+      <div><b>5–10%</b><span>offered to one or two strategic partners.</span></div>
+      <div><b>Before</b><span>the 6,000 sq ft facility, Mayon, YugaRupa and Malaysia come online. None is reflected in the current valuation.</span></div>
+      <div><b>+234%</b><span>flagship store growth over the last quarter.</span></div>
     </div>
     <div className="rflow">
-      <h4>Where your ${crf(inv)} goes to work</h4>
+      <h4>Allocation of ${crf(inv)}</h4>
       <div className="rbar">${(pct<7.5?ALLOC.A:ALLOC.B).map(([n,l,c])=>{const tot=(pct<7.5?ALLOC.A:ALLOC.B).reduce((a,x)=>a+x[1],0);return html`<i key=${n} title=${n} style=${{background:c,width:(v?l/tot*100:0)+'%'}}></i>`})}</div>
       <div className="rlist">${(pct<7.5?ALLOC.A:ALLOC.B).map(([n,l,c])=>{const tot=(pct<7.5?ALLOC.A:ALLOC.B).reduce((a,x)=>a+x[1],0);return html`<div key=${n}><i style=${{background:c}}></i><span>${n}</span><b>${crf(inv*l/tot)}</b></div>`})}</div>
     </div>
@@ -1983,35 +1985,31 @@ function Economics(){
   const [aov,setAov]=useState(650);const [upm,setUpm]=useState(6);const [mach,setMach]=useState(25);
   const cap=aov*upm*mach*26;const need=Math.ceil(10000000/(aov*upm*26));
   const cogs=COSTS.reduce((a,c)=>a+c[1],0);const spent=cogs+ADS;
-  const [mcost,setMcost]=useState(110000);const buys=Math.floor(6000000/mcost);
   return html`<section id="economics" className="sec dark">
     <div className="atm glow"></div>
     <div className="wrap">
       <${DeckTag} id="economics"/>
-      <h2>Half of every rupee is contribution.<br/>We reinvest all of it.</h2>
-      <p className="lede" style=${{marginTop:24}}>This is our cost structure per rupee of sales, as we run it today. We are profitable. Profit has built our production infrastructure, from one printer to twenty-five machines, and is fitting out the new facility right now. This raise buys speed, not survival.</p>
+      <h2>Half of every rupee<br/>is reinvested.</h2>
+      <p className="lede" style=${{marginTop:24}}>This is our cost structure per rupee of sales, as we run it today. We are profitable, and that contribution goes back into what drives the business: original ideas, faster ideation and launch cycles, and the production and fulfilment infrastructure that puts each piece in a customer\u2019s hands within days. This raise buys speed, not survival.</p>
       <div className="water" ref=${ref}>
         ${COSTS.map(([n,p,c],i)=>html`<div className="wrow" key=${n}><span>${n}</span><div className="bar"><div className="seg2" style=${{left:0,width:p*2+'%',background:c,transform:`scaleX(${v?1:0})`,transitionDelay:i*.1+'s'}}></div></div><span className="v">${p}%</span></div>`)}
         <div className="wrow total"><span>Gross margin before marketing</span><div className="bar"><div className="seg2" style=${{left:0,width:(100-cogs)*2+'%',background:'linear-gradient(90deg,#8fd3c8,#2A9D8F)',transform:`scaleX(${v?1:0})`,transitionDelay:'.5s'}}></div></div><span className="v">${100-cogs}%</span></div>
         <div className="wrow"><span>Paid ads, capped</span><div className="bar"><div className="seg2" style=${{left:0,width:ADS*2+'%',background:'#B8261F',transform:`scaleX(${v?1:0})`,transitionDelay:'.7s'}}></div></div><span className="v">${ADS}%</span></div>
         <div className="wrow total"><span>Contribution before team & overheads</span><div className="bar"><div className="seg2" style=${{left:0,width:(100-spent)*2+'%',background:'linear-gradient(90deg,#D9A93F,#F0CF7A)',transform:`scaleX(${v?1:0})`,transitionDelay:'.9s'}}></div></div><span className="v">${100-spent}%</span></div>
       </div>
-      <p className="src">Ad spend is held at 15% of sales as a rule and scaled only where conversion holds; the mix stays in this range while we prioritise reach over margin expansion. Material is the next lever: we buy about 200 kg of filament a month today, and a direct dealership with manufacturers in China would cut material cost by 20–25%. That is one of the doors this round opens.</p>
+      <p className="src">Ad spend is held at 15% of sales as a rule and scaled only where conversion holds; the mix stays in this range while we prioritise reach over margin expansion. Material is the next lever: we buy about 200 kg of filament a month today, and sourcing directly from manufacturers would cut material cost by 20–25%. That is one of the doors this round opens.</p>
       <div className="cap">
         <div>
-          <h3>From machines to revenue</h3>
-          <p style=${{color:'var(--muted)'}}>A simple bridge from the fleet to the ₹1 crore monthly target. Move the assumptions; the maths updates.</p>
+          <h3>From capacity to revenue</h3>
+          <p style=${{color:'var(--muted)'}}>A simple bridge from production capacity to the ₹1 crore monthly target. Move the assumptions; the figures update.</p>
           <label htmlFor="aov">Average order value: ₹${aov}</label><input id="aov" type="range" min="300" max="2000" step="50" value=${aov} onInput=${e=>setAov(+e.target.value)} onChange=${e=>setAov(+e.target.value)} />
           <label htmlFor="upm">Units per machine per day: ${upm}</label><input id="upm" type="range" min="2" max="20" step="1" value=${upm} onInput=${e=>setUpm(+e.target.value)} onChange=${e=>setUpm(+e.target.value)} />
           <label htmlFor="mach">Machines: ${mach}</label><input id="mach" type="range" min="25" max="300" step="5" value=${mach} onInput=${e=>setMach(+e.target.value)} onChange=${e=>setMach(+e.target.value)} />
-          <label htmlFor="mcost">Machine cost: ₹${(mcost/100000).toFixed(2)}L (U1 ₹1.1L, P1 ₹0.95L)</label><input id="mcost" type="range" min="60000" max="300000" step="5000" value=${mcost} onInput=${e=>setMcost(+e.target.value)} onChange=${e=>setMcost(+e.target.value)} />
         </div>
         <div className="out">
           <div><span>Monthly capacity at ${mach} machines, 26 days</span><b>${cap>=1e7?'₹'+(cap/1e7).toFixed(2)+' Cr':'₹'+(cap/1e5).toFixed(1)+'L'}</b></div>
           <div className="hi"><span>Machines needed for ₹1 Cr / month</span><b>${need}</b></div>
           <div><span>Orders a day at ₹1 Cr / month</span><b>${Math.round(10000000/aov/26).toLocaleString('en-IN')}</b></div>
-          <div><span>Scenario B manufacturing budget, ₹60L, buys</span><b>${buys} machines</b></div>
-          <div><span>Today's 25 plus those</span><b>${25+buys}</b></div>
         </div>
       </div>
       <p className="src">Defaults are illustrative, not reported figures; blended AOV across the three stores today is ₹622. Mayon, YugaRupa and bulk orders raise the AOV; the new 6,000 sq ft facility raises the machine ceiling. Both move the bridge in our favour.</p>
@@ -2025,20 +2023,20 @@ function Competition(){
     <div className="atm ivoryglow"></div>
     <div className="wrap">
       <${DeckTag} id="competition"/>
-      <h2>Who else is in the room,<br/>and why this is hard to follow.</h2>
+      <h2>Where we stand,<br/>and why it is hard to replicate.</h2>
       <div className="compgrid">
-        <div className="comp"><h3>Traditional idol makers</h3><p>Bronze, stone and clay craftsmen; beautiful, slow, expensive, and bound to classical forms.</p><em>They don't design for the dashboard.</em></div>
-        <div className="comp"><h3>Mass imports</h3><p>Resin and polyresin idols from China sold through marketplaces and roadside shops.</p><em>No story, no regional deities, no brand.</em></div>
-        <div className="comp"><h3>Gifting & décor brands</h3><p>Indian lifestyle brands that touch devotion as one category among many.</p><em>No manufacturing, no content engine.</em></div>
-        <div className="comp"><h3>Hobbyist 3D printers</h3><p>Individuals selling prints on Instagram and Etsy. Same tools, none of the system.</p><em>No IP, no finishing standard, no scale.</em></div>
+        <div className="comp"><h3>Original design</h3><p>Every piece begins as our own concept, created in-house around the deity’s identity and the way people live today.</p><em>Our designs, our IP.</em></div>
+        <div className="comp"><h3>Speed of ideation</h3><p>Ideas move from concept to prototype to launch in days, timed to the festival calendar.</p><em>Ready when the moment arrives.</em></div>
+        <div className="comp"><h3>Regional depth</h3><p>Products and content for regional deities and their communities, across the southern states and the diaspora.</p><em>Every deity, made with care.</em></div>
+        <div className="comp"><h3>Integrated infrastructure</h3><p>Design, production, content and fulfilment under one roof, run on our own SOPs and software.</p><em>Idea to doorstep, in-house.</em></div>
       </div>
-      <h3 style=${{marginTop:60}}>What stops someone with a printer copying us</h3>
+      <h3 style=${{marginTop:60}}>What makes this hard to replicate</h3>
       <div className="moat">
         <div><b>Character IP</b><span>Kandhan Returns and our original concepts are ours; we protect hero designs and build characters, not just idols.</span></div>
-        <div><b>The content engine</b><span>100M+ views and a daily publishing machine. A copy has the file; it doesn't have the audience.</span></div>
-        <div><b>Finish and feel</b><span>Multicolour print quality, detail and assembly standards that a hobby setup doesn’t reach.</span></div>
+        <div><b>The content engine</b><span>100M+ views and a daily publishing rhythm, with an audience that grows with every release.</span></div>
+        <div><b>Finish and feel</b><span>Multicolour print quality, fine detail and finishing standards, held to our own SOPs.</span></div>
         <div><b>Engineering</b><span>Magnetic swap systems, dashboard geometry, modular bases: product systems, not files.</span></div>
-        <div><b>Speed</b><span>Festival to product in weeks, regional deity to reel in days. Copies arrive after the moment has passed.</span></div>
+        <div><b>Speed</b><span>Festival to product in weeks, regional deity to reel in days. We ideate fast and launch on time.</span></div>
       </div>
     </div>
   </section>`;
@@ -2073,7 +2071,7 @@ function FAQ(){
     ['Why not buy a hundred printers tomorrow?','Because the machines are improving every few months and we would rather own the best fleet than the biggest. We rotate: buy the best current machine, sell older units while they hold value. The new 6,000 sq ft facility is ready for that fleet; the round buys the machines when the right ones arrive.'],
     ['How repeatable is demand?','The Kandhan reel started it. The gopuram did it again at Thaipusam with 2,000+ sold and no reel. Regional-deity reels do it monthly: a single Bala Krishna car hang went from 1 to 47 orders in a month off one reel. The units report shows it: five different YugaVeera concepts each above 250 units, and the top product at Divine Car Hangs is only 5% of its volume. Repeatability is the thesis.'],
     ['How is a new design created?','Every design starts with our design team: research into the deity, its temple and its iconography, then original concept work and 3D modelling in-house, a physical prototype on our own machines, and a reel to test demand before stock. Every product we sell is an original creation, multicolour-printed and finished in our own studio.'],
-    ['What stops a copy?','Character IP, protected hero designs, finishing quality a desktop printer does not reach, engineered systems such as magnetic swapping, a daily content engine with 100M+ views, and a release cadence tied to the festival calendar.'],
+    ['What makes this hard to replicate?','Character IP, protected hero designs, finishing quality held to our own SOPs, engineered systems such as magnetic swapping, a daily content engine with 100M+ views, and a release cadence tied to the festival calendar.'],
     ['How dependent is this on Instagram and YouTube?','Reach is earned there today across six accounts. Ads are capped at 15% of sales, and the round funds owned channels: WhatsApp, email and retail, plus the Deity Media Network, which turns each deity audience into a community we address directly.'],
     ['What about returns and COD?','Returns and wastage together are held inside 5% of sales and tracked per store. Divine lines run at 5–6% conversion with low ticket sizes, which keeps return exposure small.'],
     ['What entity am I investing in?','YugaVeera Private Limited, Bengaluru, which owns the brands, the studio and the tooling described here. PortraitXAI remains our creative content page where the Kandhan reel first ran; it is a channel, not a company in this raise.'],
